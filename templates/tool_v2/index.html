@@ -1,0 +1,136 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+
+{% block title %}
+Dev Tools
+{% endblock %}
+
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Keboola Developer Tools</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Component Debug Tool</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://json-editor.github.io/json-editor/" target="_blank">JSON Editor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://developers.keboola.com/extend/publish/checklist/" target="_blank">Publishing
+                    Checklist</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-10">
+            <h1><strong>Component Debug Tool</strong></h1>
+            <p style="">Fill in the configuration link and SAPI token:</p>
+        </div>
+    </div>
+    <div class="row">
+        {{ message }}
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+
+
+            <div class="test">
+                {{ wtf.quick_form(get_config_form, form_type = "horizontal") }}
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row run_buttons">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-5">
+            <div class="parentdiv">
+                <div class="childdiv">
+                    {{ wtf.quick_form(debug_job_form) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="parentdiv">
+                <div class="childdiv">
+                    {{ wtf.quick_form(test_tag_job_form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-10">
+            <h2>Configuration Update</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="test">
+                {{ wtf.quick_form(update_config_form, form_type = "horizontal") }}
+            </div>
+
+            <p class="space-above"><strong>{{ message_2 }}</strong></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-10">
+            <h2>State Update</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            {{ wtf.quick_form(update_state_form, form_type = "horizontal") }}
+        </div>
+    </div>
+</div>
+
+<!--
+TIPS about using Flask-Bootstrap:
+Flask-Bootstrap keeps the default Bootstrap stylesheet in the
+env/lib/python3.5/site-packages/flask_bootstrap/static/css/ directory.
+You can replace the CSS file. HOWEVER, when you reinstall requirements
+for your project, you would overwrite all the Bootstrap files
+with the defaults.
+Flask-Bootstrap templates are in
+env/lib/python3.5/site-packages/flask_bootstrap/static/templates
+Modifying the Bootstrap base.html template: use directives and
+Jinja2's super() function. See Jinja2 documentation and also this:
+https://pythonhosted.org/Flask-Bootstrap/basic-usage.html
+-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+{% endblock %}

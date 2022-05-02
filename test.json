@@ -1,0 +1,35 @@
+{
+    "authorization": {
+        "oauth_api": {
+            "id": "11874681",
+            "version": 3
+        }
+    },
+    "parameters": {
+        "bucket": "in.c-bing_ads",
+        "#devKey": "KBC::ProjectSecureKV::eJwByQA2/2E6Mzp7aToyO3M6MTAwOiLe9QIABs6YdKrU5ZodS4ZMEKzrFgrihEfvD7UwWKVB0SjxiRO2SOHrfPAuz152KnFjTxsFr4jrYCITb/+9hO6EicRWZwPMwpX2TcCPvycaouK7MFTSsEo8lWX+pEi/+aQ8rs2+IjtpOjM7czoyNjoiZ2VuLWVuY3J5cHRvcjYyMGNlOTFiODUwNzgiO2k6NDtzOjMyOiJmN2Y5Y2NiMjFjODA0NGMyODUyZjU5YmRjNDEzNjU3MiI7fS0nT3U=",
+        "accountId": "",
+        "sinceLast": true,
+        "customerId": "8032359",
+        "bulkRequests": {
+            "ads": false,
+            "adGroups": false,
+            "keywords": true,
+            "campaigns": false,
+            "campQualityScore": false,
+            "siteLinkAddExtensions": false
+        },
+        "reportRequests": [
+            {
+                "pkey": [],
+                "type": "KeywordPerformance",
+                "columns": null,
+                "startDate": "sinceLast",
+                "incremental": false,
+                "completeData": false,
+                "reportPeriod": "Yesterday",
+                "aggregationPeriod": "Daily"
+            }
+        ]
+    }
+}
